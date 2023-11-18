@@ -53,8 +53,6 @@ RUN apt install -y -o Dpkg::Options::="--force-overwrite" \
 
 RUN rm -rf /opt/nvidia/l4t-packages
 
-RUN tasksel install ubuntu-desktop
-
 COPY root/ /
 
 RUN useradd -ms /bin/bash jetson
