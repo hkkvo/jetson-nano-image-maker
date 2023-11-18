@@ -52,11 +52,12 @@ RUN apt install -y -o Dpkg::Options::="--force-overwrite" \
     vim
 
 RUN rm -rf /opt/nvidia/l4t-packages
-tasksel install ubuntu-desktop && \
+
+RUN tasksel install ubuntu-desktop
 
 COPY root/ /
 
-RUN useradd -ms /bin/bash hkk
-RUN echo 'hkk:hkk' | chpasswd
+RUN useradd -ms /bin/bash jetson
+RUN echo 'jetson:jetson' | chpasswd
 
-RUN usermod -a -G sudo hkk
+RUN usermod -a -G sudo jetson
