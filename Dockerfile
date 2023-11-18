@@ -48,13 +48,15 @@ RUN apt install -y -o Dpkg::Options::="--force-overwrite" \
     nvidia-l4t-kernel-headers \
     nvidia-l4t-cuda \
     jetson-gpio-common \
-    python3-jetson-gpio
+    python3-jetson-gpio \
+    vim
 
 RUN rm -rf /opt/nvidia/l4t-packages
+tasksel install ubuntu-desktop && \
 
 COPY root/ /
 
-RUN useradd -ms /bin/bash jetson
-RUN echo 'jetson:jetson' | chpasswd
+RUN useradd -ms /bin/bash hkk
+RUN echo 'hkk:hkk' | chpasswd
 
-RUN usermod -a -G sudo jetson
+RUN usermod -a -G sudo hkk
