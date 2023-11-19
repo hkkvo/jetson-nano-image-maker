@@ -14,7 +14,7 @@ RUN apt install -y parted
 # ifconfig
 RUN apt install -y net-tools
 
-RUN apt intsall -y network-manager
+RUN apt install -y network-manager
 
 RUN apt intsall -y vim
 
