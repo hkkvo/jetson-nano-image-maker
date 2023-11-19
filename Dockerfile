@@ -16,7 +16,7 @@ RUN apt install -y net-tools
 
 RUN apt install -y network-manager
 
-RUN apt intsall -y vim
+RUN apt install -y vim
 
 # needed by knod-static-nodes to create a list of static device nodes
 RUN apt install -y kmod
@@ -24,7 +24,6 @@ RUN apt install -y kmod
 # Install our resizerootfs service
 COPY root/etc/systemd/ /etc/systemd
 
-RUN systemctl start NetworkManager.service
 
 RUN systemctl enable resizerootfs
 RUN systemctl enable ssh
