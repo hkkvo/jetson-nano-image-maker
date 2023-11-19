@@ -14,7 +14,7 @@ RUN apt install -y parted
 # ifconfig
 RUN apt install -y net-tools
 
-RUN apt intsall -y nmcli
+RUN apt intsall -y network-manager
 
 RUN apt intsall -y vim
 
@@ -24,10 +24,14 @@ RUN apt install -y kmod
 # Install our resizerootfs service
 COPY root/etc/systemd/ /etc/systemd
 
+RUN systemctl start NetworkManager.service
+
 RUN systemctl enable resizerootfs
 RUN systemctl enable ssh
 RUN systemctl enable systemd-networkd
 RUN systemctl enable setup-resolve
+RUN systemctl enable NetworkManager.service
+
 
 RUN mkdir -p /opt/nvidia/l4t-packages
 RUN touch /opt/nvidia/l4t-packages/.nv-l4t-disable-boot-fw-update-in-preinstall
