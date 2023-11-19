@@ -18,6 +18,10 @@ RUN apt install -y network-manager
 
 RUN apt install -y vim
 
+RUN apt install slim
+
+RUN apt install ubuntu-desktop
+
 # needed by knod-static-nodes to create a list of static device nodes
 RUN apt install -y kmod
 
