@@ -14,6 +14,10 @@ RUN apt install -y parted
 # ifconfig
 RUN apt install -y net-tools
 
+RUN apt intsall -y nmcli
+
+RUN apt intsall -y vim
+
 # needed by knod-static-nodes to create a list of static device nodes
 RUN apt install -y kmod
 
@@ -48,8 +52,7 @@ RUN apt install -y -o Dpkg::Options::="--force-overwrite" \
     nvidia-l4t-kernel-headers \
     nvidia-l4t-cuda \
     jetson-gpio-common \
-    python3-jetson-gpio \
-    vim
+    python3-jetson-gpio
 
 RUN rm -rf /opt/nvidia/l4t-packages
 
